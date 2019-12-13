@@ -1,62 +1,47 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-// import {
-//     Alignment,
-//     Button,
-//     Classes,
-//     H5,
-//     Navbar,
-//     NavbarDivider,
-//     NavbarGroup,
-//     NavbarHeading,
-//     Switch
-// } from "@blueprintjs/core";
-// import {
-//     Example,
-//     handleBooleanChange,
-//     IExampleProps
-// } from "@blueprintjs/docs-theme";
-import { Navbar } from "@blueprintjs/core";
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
 
-export default function Navbar() {
+import Drawer from "./drawer";
+
+const useStyles = makeStyles(theme => ({
+    root: {
+        flexGrow: 1
+    },
+    menuButton: {
+        marginRight: theme.spacing(2)
+    },
+    title: {
+        flexGrow: 1
+    }
+}));
+
+export default function NavBar() {
+    const classes = useStyles();
+
     return (
-        <nav className="pt-navbar">
-            <div className="pt-navbar-group pt-align-left">
-                <div className="pt-navbar-heading">NavBar</div>
-                <input
-                    className="pt-input"
-                    placeholder="search..."
-                    type="text"
-                />
-            </div>
-            <div className="pt-navbar-group pt-align-right">
-                <Link className="pt-button pt-minimal pt-icon-music" to="/">Link</>
-            </div>
-        </nav>
+        <div className={classes.root}>
+            <AppBar position="static">
+                <Toolbar>
+                    <IconButton
+                        edge="start"
+                        className={classes.menuButton}
+                        color="inherit"
+                        aria-label="menu"
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography variant="h6" className={classes.title}>
+                        dash Jobs
+                    </Typography>
+                    <Button color="inherit">Login</Button>
+                </Toolbar>
+            </AppBar>
+        </div>
     );
 }
-
-// return (
-//     <nav class="bp3-navbar .modifier">
-//         <div class="bp3-navbar-group bp3-align-left">
-//             <div class="bp3-navbar-heading">dashJobs</div>
-//             <input
-//                 class="bp3-input"
-//                 placeholder="Search files..."
-//                 type="text"
-//             />
-//         </div>
-//         <div class="bp3-navbar-group bp3-align-right">
-//             <button class="bp3-button bp3-minimal bp3-icon-home">
-//                 Home
-//             </button>
-//             <button class="bp3-button bp3-minimal bp3-icon-document">
-//                 Files
-//             </button>
-//             <span class="bp3-navbar-divider"></span>
-//             <button class="bp3-button bp3-minimal bp3-icon-user"></button>
-//             <button class="bp3-button bp3-minimal bp3-icon-notifications"></button>
-//             <button class="bp3-button bp3-minimal bp3-icon-cog"></button>
-//         </div>
-//     </nav>
-// );

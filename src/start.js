@@ -1,19 +1,32 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Welcome from "./welcome";
-// import Logo from "./logo";
-
 import App from "./app";
-//Blueprint.js
-import "@blueprintjs/core";
+// Redux
+import { createStore, applyMiddleware } from "redux";
+import reduxPromise from "redux-promise";
+import { composeWithDevTools } from "redux-devtools-extension";
+import reducer from "./reducer";
+import { Provider } from "react-redux";
+// Socket.io
+import { init } from "./socket";
+
+const store = createStore(
+    reducer,
+    composeWithDevTools(applyMiddleware(reduxPromise))
+);
 
 let elem;
 
 if (location.pathname == "/welcome") {
     elem = <Welcome />;
 } else {
-    // elem = <Logo />;
-    elem = <App />;
+    init(store);
+    elem = (
+        <Provider store={store}>
+            <App />
+        </Provider>
+    );
 }
 
 // puts the stuff on screen.

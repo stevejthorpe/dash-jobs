@@ -1,24 +1,26 @@
 import React from "react";
 import axios from "./axios";
 import { BrowserRouter, Route } from "react-router-dom";
-import Header from "./header";
-// import Navbar from "./navbar";
+import ReactDOM from "react-dom";
+import Button from "@material-ui/core/Button";
+import NetworkFrame from "./networkframe";
 
-import "normalize.css/normalize.css";
-import "@blueprintjs/core/dist/blueprint.css";
+import NavBar from "./navbar";
+// import Header from "./header";
+// import Navbar from "./navbar";
 
 export default function App() {
     //
     return (
         <>
-            <Header />
-
-            <h1>This is the App component</h1>
-            <div>
-                <BrowserRouter>
-                    <h1>This is the BrowserRouter component</h1>
-                </BrowserRouter>
-            </div>
+            <NavBar />
+            <NetworkFrame />
+            <BrowserRouter>
+                <h1>This is the BrowserRouter component</h1>
+                <Button variant="contained" color="primary">
+                    Hello World
+                </Button>
+            </BrowserRouter>
         </>
     );
 }

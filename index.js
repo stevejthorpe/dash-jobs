@@ -7,9 +7,6 @@ const helmet = require("helmet");
 const csurf = require("csurf");
 const { hash, compare } = require("./utils/bc");
 
-// import "normailze.css/normalize.css" from 'normalise';
-// import "@blueprintjs/core/dist/blueprint.css";
-
 ////////////////
 // Middleware //
 ////////////////
