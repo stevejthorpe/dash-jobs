@@ -23,7 +23,7 @@ export default function Drawer() {
     const classes = useStyles();
     const [state, setState] = React.useState({
         top: false,
-        left: false,
+        left: true,
         bottom: false,
         right: false
     });
@@ -108,10 +108,6 @@ export default function Drawer() {
 
     return (
         <div>
-            <Button onClick={toggleDrawer("left", true)}>Open Left</Button>
-            <Button onClick={toggleDrawer("right", true)}>Open Right</Button>
-            <Button onClick={toggleDrawer("top", true)}>Open Top</Button>
-            <Button onClick={toggleDrawer("bottom", true)}>Open Bottom</Button>
             <SwipeableDrawer
                 open={state.left}
                 onClose={toggleDrawer("left", false)}
@@ -146,3 +142,8 @@ export default function Drawer() {
         </div>
     );
 }
+
+// <Button onClick={toggleDrawer("left", true)}>Open Left</Button>
+// <Button onClick={toggleDrawer("right", true)}>Open Right</Button>
+// <Button onClick={toggleDrawer("top", true)}>Open Top</Button>
+// <Button onClick={toggleDrawer("bottom", true)}>Open Bottom</Button>

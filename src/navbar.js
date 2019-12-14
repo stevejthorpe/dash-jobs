@@ -24,6 +24,13 @@ const useStyles = makeStyles(theme => ({
 export default function NavBar() {
     const classes = useStyles();
 
+    const [openDrawer, setOpenDrawer] = useState(false);
+
+    const toggle = () => {
+        console.log("btn clicked");
+        setOpenDrawer(!openDrawer);
+    };
+
     return (
         <div className={classes.root}>
             <AppBar position="static">
@@ -34,7 +41,7 @@ export default function NavBar() {
                         color="inherit"
                         aria-label="menu"
                     >
-                        <MenuIcon />
+                        <MenuIcon onClick={toggle} />
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
                         dash Jobs
@@ -42,6 +49,7 @@ export default function NavBar() {
                     <Button color="inherit">Login</Button>
                 </Toolbar>
             </AppBar>
+            {openDrawer && <Drawer />}
         </div>
     );
 }
