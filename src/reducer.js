@@ -8,4 +8,11 @@ export default function reducer(state = {}, action) {
         };
     }
     console.log(`state ended as `, state);
+
+    if (action.type == "GET_APPLICATIONS_DATA") {
+        state = {
+            ...state,
+            allApplicationsData: action.allApplicationsData
+        };
+    }
 }

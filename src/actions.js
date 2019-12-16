@@ -11,13 +11,13 @@ export async function addApplication(appObj) {
     };
 }
 
-// export async function getApplicationsData() {
-//     console.log("In ACTION | getApplicationsData: ", appObj);
-//
-//     await axios.post(`/application`, { appObj });
-//
-//     return {
-//         type: "GET_APPLICATIONS_DATA",
-//         applicationData: appObj
-//     };
-// }
+export async function getApplicationsData() {
+    console.log("In ACTION | getApplicationsData: ");
+
+    const data = await axios.get(`/allapplications`);
+    console.log("ACTION DATA: ", data);
+
+    return {
+        type: "GET_APPLICATIONS_DATA"
+    };
+}

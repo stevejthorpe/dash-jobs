@@ -25,11 +25,6 @@ export default function User() {
     return (
         <div className={classes.root}>
             <Grid container spacing={3}>
-                <Grid item xs={12}>
-                    <Paper className={classes.paper}>
-                        <Typography variant="h4">User Profile</Typography>
-                    </Paper>
-                </Grid>
                 <Grid item xs={3}>
                     <Paper className={classes.paper}>API</Paper>
                 </Grid>
@@ -52,7 +47,6 @@ export default function User() {
                     <Paper className={classes.paper}>
                         <Typography variant="h6">Add an application</Typography>
                         <AppDetailsForm />
-                        <Button>Edit Job Profile </Button>
                     </Paper>
                 </Grid>
                 <Grid item xs={6}>
@@ -61,7 +55,7 @@ export default function User() {
                     </Paper>
                 </Grid>
                 <Grid item xs={6}>
-                    <Paper className={classes.paper}>Notes List</Paper>
+                    <Paper className={classes.paper}>Global Notes List</Paper>
                 </Grid>
             </Grid>
         </div>

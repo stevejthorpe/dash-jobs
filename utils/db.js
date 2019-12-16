@@ -91,4 +91,12 @@ exports.addProgressApplied = function(user_id, applied, app_id) {
     );
 };
 
-// exports.getApplicationsData = function ()
+exports.getAllApplications = function(user_id) {
+    console.log("Inside db.getAllApplications", user_id);
+    return db.query(
+        `SELECT (progress.app_id, progress.id, progress.user_id, progress.applied, progress.app_response, progress.online_int, progress.inperson_int, progress.offer, progress.offer_declined, progress.offer_accepted)
+        FROM progress
+        WHERE user_id = $1`,
+        [user_id]
+    );
+};

@@ -212,6 +212,24 @@ app.post("/application", async (req, res) => {
     }
 });
 
+app.get("/allapplications", (req, res) => {
+    console.log("in GET /allapplications");
+    console.log("USER ID: ", req.session.userId);
+    return db
+        .getAllApplications(req.session.userId)
+        .then(data => {
+            console.log("Resp in GET /allapplications: ", data.rows);
+            let { rows } = data;
+            res.json({
+                success: true,
+                rows
+            });
+        })
+        .catch(err => {
+            console.log("Error in GET /allapplications: ", err);
+        });
+});
+
 // DEFAULT //
 app.get("*", function(req, res) {
     console.log("GET * route");
