@@ -49,7 +49,7 @@ export default function NavBar() {
                     <Button color="inherit">Login</Button>
                 </Toolbar>
             </AppBar>
-            {openDrawer && <Drawer />}
+            {openDrawer && <Drawer toggleDrawer={("left", true)} />}
         </div>
     );
 }

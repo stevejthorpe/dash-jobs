@@ -40,6 +40,10 @@ export default function Drawer() {
         setState({ ...state, [side]: open });
     };
 
+    const handleClick = e => {
+        console.log("e.text: ", e);
+    };
+
     const sideList = side => (
         <div
             className={classes.list}
@@ -50,7 +54,7 @@ export default function Drawer() {
             <List>
                 {["Inbox", "Starred", "Send email", "Drafts"].map(
                     (text, index) => (
-                        <ListItem button key={text}>
+                        <ListItem button key={text} onClick={handleClick}>
                             <ListItemIcon>
                                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                             </ListItemIcon>

@@ -165,6 +165,53 @@ app.post("/login", async (req, res) => {
     }
 });
 
+// FORMS //
+app.post("/application", async (req, res) => {
+    console.log("in POST /application");
+    // console.log("Application req.body: ", req.body.appObj);
+
+    const { appObj } = req.body;
+    // console.log("appObj: ", appObj);
+
+    try {
+        let companyId = await db.addCompany(appObj.jobCompany);
+        console.log("companyId: ", companyId.rows[0].id);
+
+        let contactId = await db.addContact(
+            companyId.rows[0].id,
+            appObj.jobContactFirst,
+            appObj.jobContactLast
+        );
+
+        console.log("contactId: ", contactId.rows[0].id);
+
+        console.log("UserId: ", req.session.userId);
+        let applicationId = await db.addApplication(
+            req.session.userId,
+            companyId.rows[0].id,
+            contactId.rows[0].id,
+            appObj.jobTitle,
+            appObj.jobDesc,
+            appObj.jobUrl,
+            appObj.jobCity,
+            appObj.jobCountry
+        );
+
+        let progressApplied = await db.addProgressApplied(
+            req.session.userId,
+            appObj.jobApplied,
+            applicationId.rows[0].id
+        );
+
+        console.log("progress Id", progressApplied.rows[0].id);
+    } catch (err) {
+        console.log("Error in POST /application: ", err);
+        res.json({
+            success: false
+        });
+    }
+});
+
 // DEFAULT //
 app.get("*", function(req, res) {
     console.log("GET * route");

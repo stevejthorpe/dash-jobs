@@ -4,6 +4,8 @@ import { BrowserRouter, Route } from "react-router-dom";
 import ReactDOM from "react-dom";
 import Button from "@material-ui/core/Button";
 import NetworkFrame from "./networkframe";
+import User from "./user";
+import AppProfile from "./app-profile";
 
 import NavBar from "./navbar";
 // import Header from "./header";
@@ -14,13 +16,21 @@ export default function App() {
     return (
         <>
             <NavBar />
-            <NetworkFrame />
+
             <BrowserRouter>
-                <h1>This is the BrowserRouter component</h1>
-                <Button variant="contained" color="primary">
-                    Hello World
-                </Button>
+                <Route
+                    exact
+                    path="/"
+                    render={() => (
+                        <>
+                            <User />
+                        </>
+                    )}
+                />
             </BrowserRouter>
         </>
     );
 }
+// <AppProfile />
+// <NetworkFrame />
+// <User />
