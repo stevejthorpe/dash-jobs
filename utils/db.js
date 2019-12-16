@@ -36,6 +36,8 @@ exports.addCompany = function(company_name) {
     return db.query(
         `INSERT INTO company (company_name)
         VALUES ($1)
+        ON CONFLICT (company_name)
+        DO UPDATE SET company_name = $1
         RETURNING id`,
         [company_name]
     );
@@ -88,3 +90,5 @@ exports.addProgressApplied = function(user_id, applied, app_id) {
         [user_id, applied, app_id]
     );
 };
+
+// exports.getApplicationsData = function ()

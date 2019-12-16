@@ -45,6 +45,7 @@ export default function User() {
                 <Grid item xs={6}>
                     <Paper className={classes.paper}>
                         <Typography variant="h6">Application Graph</Typography>
+                        <NetworkFrame />
                     </Paper>
                 </Grid>
                 <Grid item xs={6}>
@@ -66,5 +67,3 @@ export default function User() {
         </div>
     );
 }
-
-<NetworkFrame />;

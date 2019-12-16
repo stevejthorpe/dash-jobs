@@ -1,11 +1,11 @@
 export default function reducer(state = {}, action) {
     console.log(`state started as `, state);
 
-    if (action.type == "ADD_APPLICATION") {
+    if (action.type == "ADD_APPLICATION_INPUT") {
         state = {
             ...state,
-            applicationData: action.applicationData
+            applicationInput: action.applicationInput
         };
     }
-    console.log(`state started as `, state);
+    console.log(`state ended as `, state);
 }
