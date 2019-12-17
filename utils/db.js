@@ -94,9 +94,22 @@ exports.addProgressApplied = function(user_id, applied, app_id) {
 exports.getAllApplications = function(user_id) {
     console.log("Inside db.getAllApplications", user_id);
     return db.query(
-        `SELECT (progress.app_id, progress.id, progress.user_id, progress.applied, progress.app_response, progress.online_int, progress.inperson_int, progress.offer, progress.offer_declined, progress.offer_accepted)
+        `SELECT
+            app_id,
+            progress.id,
+            progress.user_id,
+            applied,
+            app_response,
+            online_int,
+            inperson_int,
+            offer,
+            offer_declined,
+            offer_accepted,
+            application.city
         FROM progress
-        WHERE user_id = $1`,
+
+        JOIN application ON application.id = progress.app_id
+        WHERE progress.user_id = $1`,
         [user_id]
     );
 };

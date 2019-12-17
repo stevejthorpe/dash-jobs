@@ -14,10 +14,11 @@ export async function addApplication(appObj) {
 export async function getApplicationsData() {
     console.log("In ACTION | getApplicationsData: ");
 
-    const data = await axios.get(`/allapplications`);
-    console.log("ACTION DATA: ", data);
+    const { data } = await axios.get(`/allapplications`);
+    console.log("ACTION DATA: ", data.rows);
 
     return {
-        type: "GET_APPLICATIONS_DATA"
+        type: "GET_APPLICATIONS_DATA",
+        allApplicationsData: data.rows
     };
 }
