@@ -46,7 +46,7 @@ export default function NavBar() {
                     <Typography variant="h6" className={classes.title}>
                         dash Jobs
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    <Button color="inherit">Logout</Button>
                 </Toolbar>
             </AppBar>
             {openDrawer && <Drawer toggleDrawer={("left", true)} />}

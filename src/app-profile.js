@@ -5,6 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import NetworkFrame from "./networkframe";
+import { useDispatch, useSelector } from "react-redux";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -19,6 +20,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function AppProfile() {
     const classes = useStyles();
+
+    // useEffect(() => {
+    //     console.log("In Dispatch");
+    //     if ()
+    // })
 
     return (
         <div className={classes.root}>

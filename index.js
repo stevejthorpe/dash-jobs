@@ -236,7 +236,7 @@ app.get("/allpplicationslist", (req, res) => {
     return db
         .getApplicationsList(req.session.userId)
         .then(data => {
-            console.log("DATA: ", data.rows);
+            // console.log("DATA: ", data.rows);
             let { rows } = data;
             res.json({
                 success: true,
@@ -245,6 +245,20 @@ app.get("/allpplicationslist", (req, res) => {
         })
         .catch(err => {
             console.log("Err in /allpplicationslist: ", err);
+        });
+});
+
+app.post("/delete-application/:app_id", (req, res) => {
+    console.log("In POST /delete-application: ", req.params.app_id);
+
+    return db
+        .deleteApplication(req.params.app_id)
+        .then(data => {
+            console.log("POST /deleteapplication success: ", data);
+            res.json({ success: true });
+        })
+        .catch(err => {
+            console.log("Error in db.deleteapplication: ", err);
         });
 });
 

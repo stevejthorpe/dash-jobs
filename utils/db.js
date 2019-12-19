@@ -127,3 +127,12 @@ exports.getApplicationsList = function(user_id) {
         [user_id]
     );
 };
+
+exports.deleteApplication = function(app_id) {
+    console.log("In db.deleteApplication");
+    return db.query(
+        `DELETE FROM application
+        WHERE id = $1`,
+        [app_id]
+    );
+};

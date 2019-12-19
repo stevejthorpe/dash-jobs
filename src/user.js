@@ -52,9 +52,7 @@ export default function User() {
                 </Grid>
                 <Grid item xs={6}>
                     <Paper className={classes.paper}>
-                        <Typography variant="h6">
-                            Open Applications List
-                        </Typography>
+                        <Typography variant="h6"></Typography>
                         <AppList />
                     </Paper>
                 </Grid>

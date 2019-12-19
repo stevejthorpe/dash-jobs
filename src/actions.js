@@ -34,3 +34,15 @@ export async function getApplicationsList() {
         allApplicationsList: data.rows
     };
 }
+
+export async function deleteApplication(app_id) {
+    console.log("In ACTION | deleteApplication: ", app_id);
+
+    const { data } = await axios.post(`/delete-application/` + app_id);
+    console.log("ACTION DATA: ", data);
+
+    return {
+        type: "DELETE_APPLICATION",
+        app_id
+    };
+}
