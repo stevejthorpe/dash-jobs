@@ -26,6 +26,16 @@ export default function reducer(state = {}, action) {
             allApplicationsList: action.allApplicationsList
         };
     }
+
+    if (action.type == "DELETE_APPLICATION") {
+        console.log("In reducer DELETE_APPLICATION: ", action);
+        state = {
+            ...state,
+            allApplicationsList: state.allApplicationsList.filter(appId => {
+                return action.app_id != appId.id;
+            })
+        };
+    }
     console.log(`state ended as `, state);
 
     return state;

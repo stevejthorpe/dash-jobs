@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import NetworkFrame from "./networkframe";
 import { useDispatch, useSelector } from "react-redux";
+import AppSummary from "./app-summary";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -29,11 +30,6 @@ export default function AppProfile() {
     return (
         <div className={classes.root}>
             <Grid container spacing={3}>
-                <Grid item xs={12}>
-                    <Paper className={classes.paper}>
-                        NAME application profile
-                    </Paper>
-                </Grid>
                 <Grid item xs={3}>
                     <Paper className={classes.paper}>API</Paper>
                 </Grid>
@@ -44,18 +40,19 @@ export default function AppProfile() {
                     <Paper className={classes.paper}>Glassdoor API</Paper>
                 </Grid>
                 <Grid item xs={3}>
-                    <Paper className={classes.paper}>Notes List</Paper>
+                    <Paper className={classes.paper}>API</Paper>
                 </Grid>
-
+                <Grid item xs={3}>
+                    <Paper className={classes.paper}></Paper>
+                </Grid>
                 <Grid item xs={6}>
                     <Paper className={classes.paper}>
-                        Network Frame
-                        <NetworkFrame />
+                        <AppSummary />
+                        <Button>Save</Button>
                     </Paper>
                 </Grid>
-                <Grid item xs={6}>
-                    <Paper className={classes.paper}>Application Summary</Paper>
-                    <Button>Edit Job Profile </Button>
+                <Grid item xs={3}>
+                    <Paper className={classes.paper}>Notes List</Paper>
                 </Grid>
             </Grid>
         </div>

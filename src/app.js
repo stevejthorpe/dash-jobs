@@ -27,7 +27,7 @@ export default function App() {
                         </>
                     )}
                 />
-                <Route exact path="/application:id" component={AppProfile} />
+                <Route exact path="/application/:id" component={AppProfile} />
             </BrowserRouter>
         </>
     );

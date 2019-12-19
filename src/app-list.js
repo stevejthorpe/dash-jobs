@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "./axios";
+import { Link } from "react-router-dom";
 
 // REDUX
 import { useDispatch, useSelector } from "react-redux";
@@ -41,15 +42,6 @@ export default function AppList() {
     const dispatch = useDispatch();
     // const [dense, setDense] = React.useState(false);
 
-    useEffect(() => {
-        console.log("Dispatch getApplicationsList");
-        if (!openApplications) {
-            console.log("Dispatching Open Applications");
-            dispatch(getApplicationsList());
-            return;
-        }
-    }, []);
-
     // const openApplications = useSelector(state => {
     //     console.log("In selector: ", state.allApplicationsList);
     //     return state.allApplicationsList;
@@ -58,6 +50,17 @@ export default function AppList() {
     const openApplications = useSelector(
         state => state && state.allApplicationsList
     );
+
+    useEffect(() => {
+        // console.log("Dispatch getApplicationsList");
+        // dispatch(getApplicationsList());
+        // return;
+        if (!openApplications) {
+            console.log("Dispatching Open Applications");
+            dispatch(getApplicationsList());
+            return;
+        }
+    }, [openApplications]);
 
     // if (openApplications.length) {
     //     setYes(true);
@@ -96,7 +99,7 @@ export default function AppList() {
         return (
             <Grid item xs={12} md={12}>
                 <Typography variant="h6" className={classes.title}>
-                    Open Applications List
+                    Open Applications
                 </Typography>
                 <div className={classes.root}>
                     <List>
@@ -111,7 +114,9 @@ export default function AppList() {
                                 <ListItemText primary={item.job_title} />
                                 <ListItemSecondaryAction>
                                     <IconButton edge="end" aria-label="edit">
-                                        <EditIcon />
+                                        <Link to={`/application/` + item.id}>
+                                            <EditIcon />
+                                        </Link>
                                     </IconButton>
                                     <IconButton
                                         edge="end"
