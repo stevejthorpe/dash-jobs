@@ -7,13 +7,23 @@ export default function reducer(state = {}, action) {
             applicationInput: action.applicationInput
         };
     }
-    console.log(`state ended as `, state);
 
     if (action.type == "GET_APPLICATIONS_DATA") {
         // console.log("In reducer: ", action.allApplicationsData);
         state = {
             ...state,
             allApplicationsData: action.allApplicationsData
+        };
+    }
+
+    if (action.type == "GET_APPLICATIONS_LIST") {
+        console.log(
+            "In reducer GET_APPLICATIONS_LIST: ",
+            action.allApplicationsList
+        );
+        state = {
+            ...state,
+            allApplicationsList: action.allApplicationsList
         };
     }
     console.log(`state ended as `, state);

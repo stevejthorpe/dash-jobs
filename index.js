@@ -218,7 +218,7 @@ app.get("/allapplications", (req, res) => {
     return db
         .getAllApplications(req.session.userId)
         .then(data => {
-            console.log("Resp in GET /allapplications: ", data.rows);
+            // console.log("Resp in GET /allapplications: ", data.rows);
             let { rows } = data;
             res.json({
                 success: true,
@@ -227,6 +227,24 @@ app.get("/allapplications", (req, res) => {
         })
         .catch(err => {
             console.log("Error in GET /allapplications: ", err);
+        });
+});
+
+app.get("/allpplicationslist", (req, res) => {
+    console.log("In GET /allapplicationslist");
+    console.log("NEW USER ID: ", req.session.userId);
+    return db
+        .getApplicationsList(req.session.userId)
+        .then(data => {
+            console.log("DATA: ", data.rows);
+            let { rows } = data;
+            res.json({
+                success: true,
+                rows
+            });
+        })
+        .catch(err => {
+            console.log("Err in /allpplicationslist: ", err);
         });
 });
 

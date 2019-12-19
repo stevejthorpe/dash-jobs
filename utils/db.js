@@ -113,3 +113,17 @@ exports.getAllApplications = function(user_id) {
         [user_id]
     );
 };
+
+exports.getApplicationsList = function(user_id) {
+    console.log("Inside db.getApplicationsList: ", user_id);
+    return db.query(
+        `SELECT
+            application.id,
+            application.job_title,
+            company.company_name
+        FROM application
+        JOIN company ON application.company_id = company.id
+        WHERE application.user_id = $1`,
+        [user_id]
+    );
+};

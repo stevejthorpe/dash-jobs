@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import AppDetailsForm from "./app-details";
 import NetworkFrame from "./networkframe";
+import AppList from "./app-list";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -51,7 +52,10 @@ export default function User() {
                 </Grid>
                 <Grid item xs={6}>
                     <Paper className={classes.paper}>
-                        Open Applications List
+                        <Typography variant="h6">
+                            Open Applications List
+                        </Typography>
+                        <AppList />
                     </Paper>
                 </Grid>
                 <Grid item xs={6}>
