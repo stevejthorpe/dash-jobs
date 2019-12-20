@@ -11,6 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import SummaryApp from "./summary-app";
 import SummaryCompany from "./summary-company";
 import SummaryContact from "./summary-contact";
+import AppProgress from "./app-progress";
 
 import { getApplicationsData } from "./actions";
 
@@ -31,8 +32,8 @@ export default function AppSummary() {
     //     state && state.allApplicationsData;
     //     // state.allApplicationsList;
     // });
-    let currentData = dispatch(getApplicationsData());
-    console.log("currentData: ", currentData);
+    // let currentData = dispatch(getApplicationsData());
+    // console.log("currentData: ", currentData);
     return (
         <form className={classes.root} noValidate autoComplete="off">
             <div>
@@ -41,6 +42,8 @@ export default function AppSummary() {
                 <SummaryCompany />
                 <Divider variant="middle" />
                 <SummaryContact />
+                <Divider variant="middle" />
+                <AppProgress />
             </div>
         </form>
     );

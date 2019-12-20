@@ -22,42 +22,15 @@ export default function SummaryCompany() {
     return (
         <form className={classes.root} noValidate autoComplete="off">
             <div>
-                <Typography variant="h5" component="h3" align="left">
+                <Typography variant="h6" component="h3" align="left">
                     Company Information
                 </Typography>
-                <TextField
-                    id="standard-search"
-                    label="Search field"
-                    type="search"
-                />
-                <TextField
-                    id="standard-helperText"
-                    label="Helper text"
-                    defaultValue="Default Value"
-                    helperText="Some important text"
-                />
-                <TextField
-                    id="standard-search"
-                    label="Search field"
-                    type="search"
-                />
-                <TextField
-                    id="standard-helperText"
-                    label="Helper text"
-                    defaultValue="Default Value"
-                    helperText="Some important text"
-                />
-                <TextField
-                    id="standard-search"
-                    label="Search field"
-                    type="search"
-                />
-                <TextField
-                    id="standard-helperText"
-                    label="Helper text"
-                    defaultValue="Default Value"
-                    helperText="Some important text"
-                />
+                <TextField id="company-name" label="Company Name" />
+                <TextField id="company-url" label="Website" type="url" />
+                <TextField id="company-add" label="Address" />
+                <TextField id="company-postcode" label="Postcode" />
+                <TextField id="company-city" label="City" />
+                <TextField id="company-country" label="Country" />
             </div>
         </form>
     );

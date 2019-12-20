@@ -31,6 +31,14 @@ export default function NavBar() {
         setOpenDrawer(!openDrawer);
     };
 
+    const logout = () => {
+        window.location.href = "/logout";
+    };
+
+    const home = () => {
+        window.location.href = "/";
+    };
+
     return (
         <div className={classes.root}>
             <AppBar position="static">
@@ -46,7 +54,12 @@ export default function NavBar() {
                     <Typography variant="h6" className={classes.title}>
                         dash Jobs
                     </Typography>
-                    <Button color="inherit">Logout</Button>
+                    <Button color="inherit" onClick={home}>
+                        Home
+                    </Button>
+                    <Button color="inherit" onClick={logout}>
+                        Logout
+                    </Button>
                 </Toolbar>
             </AppBar>
             {openDrawer && <Drawer toggleDrawer={("left", true)} />}

@@ -22,30 +22,20 @@ export default function SummaryContact() {
     return (
         <form className={classes.root} noValidate autoComplete="off">
             <div>
-                <Typography variant="h5" component="h3" align="left">
+                <Typography variant="h6" component="h3" align="left">
                     Contact Information
                 </Typography>
+                <TextField id="contact-firstname" label="Contact Firstname" />
+                <TextField id="contact-lastname" label="Contact Lastname" />
                 <TextField
-                    id="standard-search"
-                    label="Search field"
-                    type="search"
+                    id="contact-email"
+                    label="Contact Email"
+                    type="email"
                 />
                 <TextField
-                    id="standard-helperText"
-                    label="Helper text"
-                    defaultValue="Default Value"
-                    helperText="Some important text"
-                />
-                <TextField
-                    id="standard-search"
-                    label="Search field"
-                    type="search"
-                />
-                <TextField
-                    id="standard-helperText"
-                    label="Helper text"
-                    defaultValue="Default Value"
-                    helperText="Some important text"
+                    id="contact-tel"
+                    label="Contact Telephone"
+                    type="tel"
                 />
             </div>
         </form>

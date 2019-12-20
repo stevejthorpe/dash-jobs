@@ -108,7 +108,7 @@ export default function AppDetailsForm() {
                         <Checkbox
                             id="standard-required"
                             type="checkbox"
-                            onChange={e => setJobApplied(e.target.value)}
+                            onChange={() => setJobApplied(true)}
                         />
                     }
                     label="Application Sent?"

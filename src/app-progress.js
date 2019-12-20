@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function SummaryApp() {
+export default function Progress() {
     const classes = useStyles();
 
     // const { jobTitle, jobCity } = useSelector(state => {
@@ -31,7 +31,7 @@ export default function SummaryApp() {
         <form className={classes.root} noValidate autoComplete="off">
             <div>
                 <Typography variant="h6" component="h3" align="left">
-                    Application Information
+                    Application Progress
                 </Typography>
                 <TextField id="job-title" label="Job Title" name="job-title" />
                 <TextField
