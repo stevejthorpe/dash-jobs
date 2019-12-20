@@ -4,9 +4,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import NetworkFrame from "./networkframe";
+
+// import NetworkFrame from "./networkframe";
+
 import { useDispatch, useSelector } from "react-redux";
 import AppSummary from "./app-summary";
+import AppProgress from "./app-progress";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -52,7 +55,9 @@ export default function AppProfile() {
                     </Paper>
                 </Grid>
                 <Grid item xs={3}>
-                    <Paper className={classes.paper}>Notes List</Paper>
+                    <Paper className={classes.paper}>
+                        <AppProgress />
+                    </Paper>
                 </Grid>
             </Grid>
         </div>

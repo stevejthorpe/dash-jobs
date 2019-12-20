@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
+import FormLabel from "@material-ui/core/FormLabel";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -22,9 +23,8 @@ export default function SummaryContact() {
     return (
         <form className={classes.root} noValidate autoComplete="off">
             <div>
-                <Typography variant="h6" component="h3" align="left">
-                    Contact Information
-                </Typography>
+                <FormLabel component="legend">Contact Information</FormLabel>
+
                 <TextField id="contact-firstname" label="Contact Firstname" />
                 <TextField id="contact-lastname" label="Contact Lastname" />
                 <TextField

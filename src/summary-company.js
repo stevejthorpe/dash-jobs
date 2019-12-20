@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
+import FormLabel from "@material-ui/core/FormLabel";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -22,9 +23,7 @@ export default function SummaryCompany() {
     return (
         <form className={classes.root} noValidate autoComplete="off">
             <div>
-                <Typography variant="h6" component="h3" align="left">
-                    Company Information
-                </Typography>
+                <FormLabel component="legend">Company Information</FormLabel>
                 <TextField id="company-name" label="Company Name" />
                 <TextField id="company-url" label="Website" type="url" />
                 <TextField id="company-add" label="Address" />
