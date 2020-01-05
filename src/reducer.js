@@ -36,6 +36,15 @@ export default function reducer(state = {}, action) {
             })
         };
     }
+
+    if (action.type == "SET_CURRENT_APPID") {
+        console.log("ACTION APPID: ", action);
+        state = {
+            ...state,
+            currentAppId: action.currentAppId
+        };
+    }
+
     console.log(`state ended as `, state);
 
     return state;

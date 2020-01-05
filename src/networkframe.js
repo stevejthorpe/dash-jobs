@@ -51,7 +51,7 @@ export default () => {
     }, [myEdges]);
 
     const myEdges = useSelector(state => {
-        // console.log("In my edges");
+        console.log("In my edges");
 
         let a = [];
 
@@ -142,7 +142,7 @@ export default () => {
         return a;
     });
 
-    // console.log("myEdges: ", myEdges);
+    console.log("myEdges: ", myEdges);
 
     const frameProps = {
         nodes: [],

@@ -136,3 +136,48 @@ exports.deleteApplication = function(app_id) {
         [app_id]
     );
 };
+
+exports.updateProgress = function(
+    currentAppId,
+    applied,
+    app_response,
+    online_int,
+    inperson_int,
+    offer,
+    offer_declined,
+    offer_accepted
+) {
+    console.log(
+        currentAppId,
+        applied,
+        app_response,
+        online_int,
+        inperson_int,
+        offer,
+        offer_declined,
+        offer_accepted
+    );
+
+    return db.query(
+        `UPDATE progress
+        SET applied = $2,
+        app_response = $3,
+        online_int = $4,
+        inperson_int = $5,
+        offer = $6,
+        offer_declined = $7,
+        offer_accepted = $8
+        WHERE id = $1
+        `,
+        [
+            currentAppId,
+            applied,
+            app_response,
+            online_int,
+            inperson_int,
+            offer,
+            offer_declined,
+            offer_accepted
+        ]
+    );
+};

@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 
 // REDUX
 import { useDispatch, useSelector } from "react-redux";
-import { getApplicationsList, deleteApplication } from "./actions";
+import {
+    getApplicationsList,
+    deleteApplication,
+    setCurrentAppID
+} from "./actions";
 
 // MATERIAL UI
 import { makeStyles } from "@material-ui/core/styles";
@@ -29,7 +33,7 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles(theme => ({
     root: {
         width: "100%",
-        maxWidth: 360,
+        maxWidth: 600,
         backgroundColor: theme.palette.background.paper
     },
     title: {

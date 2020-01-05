@@ -37,9 +37,9 @@ export default function AppSummary() {
         <form className={classes.root} noValidate autoComplete="off">
             <div>
                 <SummaryApp />
-                <Divider variant="middle" />
+
                 <SummaryCompany />
-                <Divider variant="middle" />
+
                 <SummaryContact />
             </div>
         </form>

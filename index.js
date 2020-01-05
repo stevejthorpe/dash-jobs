@@ -204,6 +204,10 @@ app.post("/application", async (req, res) => {
         );
 
         console.log("progress Id", progressApplied.rows[0].id);
+
+        res.json({success: true});
+
+        
     } catch (err) {
         console.log("Error in POST /application: ", err);
         res.json({
@@ -259,6 +263,49 @@ app.post("/delete-application/:app_id", (req, res) => {
         })
         .catch(err => {
             console.log("Error in db.deleteapplication: ", err);
+        });
+});
+
+app.post("/progress-update", (req, res) => {
+    console.log("In POST /progress-update: ", req.params);
+
+    const {
+        currentAppId,
+        applied,
+        app_response,
+        online_int,
+        inperson_int,
+        offer,
+        offer_declined,
+        offer_accepted
+    } = req.body;
+    console.log(
+        currentAppId,
+        applied,
+        app_response,
+        online_int,
+        inperson_int,
+        offer,
+        offer_declined,
+        offer_accepted
+    );
+    return db
+        .updateProgress(
+            currentAppId,
+            applied,
+            app_response,
+            online_int,
+            inperson_int,
+            offer,
+            offer_declined,
+            offer_accepted
+        )
+        .then(data => {
+            console.log("data: ", data);
+            res.json({ success: true });
+        })
+        .catch(err => {
+            console.log("Error in POST updateProgress: ", err);
         });
 });
 

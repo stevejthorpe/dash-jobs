@@ -15,7 +15,7 @@ export async function getApplicationsData() {
     console.log("In ACTION | getApplicationsData: ");
 
     const { data } = await axios.get(`/allapplications`);
-    // console.log("ACTION DATA: ", data.rows);
+    console.log("----ACTION DATA: ", data.rows);
 
     return {
         type: "GET_APPLICATIONS_DATA",
@@ -44,5 +44,24 @@ export async function deleteApplication(app_id) {
     return {
         type: "DELETE_APPLICATION",
         app_id
+    };
+}
+
+export async function setCurrentAppID(app_id) {
+    console.log("ACTION SET CURRENT APP ID: ", app_id);
+    return {
+        type: "SET_CURRENT_APPID",
+        currentAppId: app_id
+    };
+}
+
+export async function updateProgress(projectObj) {
+    console.log("In ACTION | progressUpdate: ", projectObj);
+
+    await axios.post("/progress-update", projectObj);
+
+    return {
+        type: "PROGRESS_UPDATE"
+        // progressObj
     };
 }

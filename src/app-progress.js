@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import { updateProgress } from "./actions";
 
 // MATERIAL UI
 import TextField from "@material-ui/core/TextField";
@@ -25,6 +27,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Progress() {
     const classes = useStyles();
+    const dispatch = useDispatch();
 
     // const { jobTitle, jobCity } = useSelector(state => {
     //     state.allApplicationsList.job_title[0];
@@ -43,10 +46,6 @@ export default function Progress() {
         offer_accepted: false
     });
 
-    const handleChange = name => event => {
-        setState({ ...state, [name]: event.target.checked });
-    };
-
     const {
         applied,
         app_response,
@@ -56,6 +55,71 @@ export default function Progress() {
         offer_declined,
         offer_accepted
     } = state;
+
+    console.log("state:", state);
+
+    const currentAppId = useSelector(state => {
+        return state.currentAppId;
+    });
+
+    // let currentAppData;
+
+    // useEffect(() => {
+    //     if (!currentAppData) {
+    //         currentAppData = useSelector(state => {
+    //             // console.log("Appid: ", currentAppId);
+    //             // console.log("state.allApplicationsData: ", state.allApplicationsData);
+    //
+    //             return (
+    //                 state &&
+    //                 state.allApplicationsData.filter(
+    //                     data => data.app_id == currentAppId
+    //                 )
+    //             );
+    //         });
+    //     }
+    // }, [currentAppData]);
+
+    const currentAppData = useSelector(state => {
+        // console.log("Appid: ", currentAppId);
+        // console.log("state.allApplicationsData: ", state.allApplicationsData);
+
+        return (
+            state &&
+            state.allApplicationsData.filter(
+                data => data.app_id == currentAppId
+            )
+        );
+    });
+
+    console.log("currentAppData: ", currentAppData[0]);
+
+    // console.log("currentAppData: ", currentAppData[0].app_id);
+    // console.log("currentAppData: ", app_id);
+
+    console.log("Progress State: ", currentAppId);
+
+    const handleChange = name => event => {
+        console.log("name, event : ", name, event.target.checked);
+        setState({ ...state, [name]: event.target.checked });
+    };
+
+    console.log("State.applied: ", state.applied);
+
+    useEffect(() => {
+        dispatch(
+            updateProgress({
+                currentAppId,
+                applied,
+                app_response,
+                online_int,
+                inperson_int,
+                offer,
+                offer_declined,
+                offer_accepted
+            })
+        );
+    }, []);
 
     return (
         <form className={classes.root} noValidate autoComplete="off">
@@ -113,7 +177,7 @@ export default function Progress() {
                                 <Checkbox
                                     checked={offer}
                                     onChange={handleChange("offer")}
-                                    value="offer"
+                                    value="Offer"
                                 />
                             }
                             label="offer"
@@ -144,43 +208,3 @@ export default function Progress() {
         </form>
     );
 }
-
-// <FormControlLabel
-//     control={
-//         <Checkbox
-//             checked={jason}
-//             onChange={handleChange("jason")}
-//             value="jason"
-//         />
-//     }
-//     label="Jason Killian"
-// />
-// <FormControlLabel
-//     control={
-//         <Checkbox
-//             checked={antoine}
-//             onChange={handleChange("antoine")}
-//             value="antoine"
-//         />
-//     }
-//     label="Antoine Llorca"
-// />
-// </FormGroup>
-// <FormHelperText>Be careful</FormHelperText>
-
-// <Typography
-//     variant="h6"
-//     component="h3"
-//     align="left"
-//     gutterBottom
-// >
-//     Application Progress
-// </Typography>
-// <TextField id="job-title" label="Job Title" name="job-title" />
-// <TextField
-//     id="job-description"
-//     label="Job Descritpion"
-//     name="job-descritpion"
-// />
-// <TextField id="url" label="Website" type="url" />
-// <TextField id="city" label="City" name="job-city" />
