@@ -205,9 +205,7 @@ app.post("/application", async (req, res) => {
 
         console.log("progress Id", progressApplied.rows[0].id);
 
-        res.json({success: true});
-
-        
+        res.json({ success: true });
     } catch (err) {
         console.log("Error in POST /application: ", err);
         res.json({
@@ -319,6 +317,6 @@ app.get("*", function(req, res) {
     }
 });
 
-app.listen(8080, function() {
+app.listen(process.env.PORT || 8080, function() {
     console.log("I'm listening.");
 });
