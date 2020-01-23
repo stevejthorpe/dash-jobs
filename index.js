@@ -132,6 +132,8 @@ app.post("/login", async (req, res) => {
     console.log("POST login route");
     let { email, password } = req.body;
     console.log("Login req.body: ", req.body);
+    console.log("email: ", email);
+    console.log("password: ", password);
 
     try {
         let hashedPassword = await db.getUser(email);
@@ -139,6 +141,8 @@ app.post("/login", async (req, res) => {
             password,
             hashedPassword.rows[0].password
         );
+        console.log("inner password: ", req.body.password);
+        console.log("hashedPassword: ", hashedPassword);
 
         if (correctPassword) {
             console.log("Passwords match");

@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#root {
+    height: 100%;
+}
+
+.tooltip-content {
+    bottom: 19px;
+    position: relative;
+    left: -75px;
+    background: white;
+    border: 1px solid black;
+    color: black;
+    padding: 10px;
+    z-index: 999999;
+    min-width: 120px;
+    position: relative;
+}
+
+.tooltip-content:before {
+    background: white;
+    content: "";
+    padding: 0px;
+    transform: rotate(45deg);
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    z-index: 99;
+    bottom: -10px;
+    left: 65px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.annotation text {
+    fill: #b10000;
+}
+
+.annotation path {
+    stroke: #b10000;
+    stroke-width: 1px;
+}
+
+.annotation path.connector-end {
+    fill: #b10000;
+    stroke-width: 1px;
+    stroke-dasharray: 0;
+}
+
+.tick > path {
+    stroke: lightgray;
+}
+
+line.axis-baseline {
+    stroke: none;
+}

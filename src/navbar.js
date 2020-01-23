@@ -39,6 +39,10 @@ export default function NavBar() {
         window.location.href = "/";
     };
 
+    const test = () => {
+        window.location.href = "/test";
+    };
+
     return (
         <div className={classes.root}>
             <AppBar position="static">
@@ -54,6 +58,9 @@ export default function NavBar() {
                     <Typography variant="h6" className={classes.title}>
                         dash Jobs
                     </Typography>
+                    <Button color="inherit" onClick={test}>
+                        Test
+                    </Button>
                     <Button color="inherit" onClick={home}>
                         Home
                     </Button>

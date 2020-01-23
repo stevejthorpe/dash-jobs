@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import NetworkFrame from "./networkframe";
 import User from "./user";
 import AppProfile from "./app-profile";
+import Hierarchy from "./hierarchy";
 
 import NavBar from "./navbar";
 // import Header from "./header";
@@ -28,6 +29,7 @@ export default function App() {
                     )}
                 />
                 <Route exact path="/application/:id" component={AppProfile} />
+                <Route exact path="/test" component={Hierarchy} />
             </BrowserRouter>
         </>
     );

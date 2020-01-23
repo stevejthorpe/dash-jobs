@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "./axios";
+// import axios from "./axios";
 // import * from "d3-hierarchy";
 import { useDispatch, useSelector } from "react-redux";
 import { getApplicationsData } from "./actions";
@@ -54,10 +54,11 @@ export default () => {
         console.log("In my edges");
 
         let a = [];
+        console.log("myEdges a: ", a);
 
         let b =
             state.allApplicationsData &&
-            state.allApplicationsData.map(item => {
+            state.allApplicationsData.map((item, i) => {
                 // Cities -> Job Applications
                 if (item.applied) {
                     a.push({
@@ -185,7 +186,7 @@ export default () => {
             </div>
         );
     } else {
-        return <>{done && <NetworkFrame {...frameProps} />}</>;
+        return <div>{done && <NetworkFrame {...frameProps} />}</div>;
     }
 
     // return <>{done && <NetworkFrame {...frameProps} />}</>;

@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppDetailsForm from "./app-details";
 import NetworkFrame from "./networkframe";
 import AppList from "./app-list";
+import Hierarchy from "./hierarchy";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -42,7 +43,7 @@ export default function User() {
                 <Grid item xs={6}>
                     <Paper className={classes.paper}>
                         <Typography variant="h6">Application Graph</Typography>
-                        <NetworkFrame />
+                        <Hierarchy />
                     </Paper>
                 </Grid>
                 <Grid item xs={6}>
